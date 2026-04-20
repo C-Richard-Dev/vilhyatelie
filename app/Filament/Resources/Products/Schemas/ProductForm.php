@@ -13,7 +13,9 @@ class ProductForm
             ->components([
                 Forms\Components\FileUpload::make('image')
                     ->image()
+                    ->required()
                     ->label('Imagem'),
+
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->label('Nome'),

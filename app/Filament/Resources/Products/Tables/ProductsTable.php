@@ -19,8 +19,10 @@ class ProductsTable
                     ->height(48)
                     ->width(48),
                 \Filament\Tables\Columns\TextColumn::make('name')
+                    ->searchable()
                     ->label('Nome'),
                 \Filament\Tables\Columns\TextColumn::make('category.name')
+                    ->searchable()
                     ->label('Categoria'),
             ])
             ->filters([
