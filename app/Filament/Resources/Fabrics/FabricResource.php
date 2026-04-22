@@ -20,6 +20,16 @@ class FabricResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSquare3Stack3d;
 
+    public static function getLabel(): string
+    {
+        return 'Tecido';
+    }
+
+    public static function getPluralLabel(): string
+    {
+        return 'Tecidos';
+    }
+
     public static function form(Schema $schema): Schema
     {
         return FabricForm::configure($schema);
