@@ -29,6 +29,18 @@ class Product extends Model
         return number_format($value, 2, ',', '.');
     }
 
+    public function getImageUrlAttribute()
+    {
+        if (!$this->image) {
+            return null;
+        }
+        // Se já for uma URL completa
+        if (str_starts_with($this->image, 'http')) {
+            return $this->image;
+        }
+        return asset('storage/' . $this->image);
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
