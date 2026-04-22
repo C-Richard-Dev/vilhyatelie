@@ -14,11 +14,8 @@ class HomeController extends Controller
      */
     public function index(): Response
     {
-        $products = Product::with('category')->get()->map(function ($product) {
-            $arr = $product->toArray();
-            $arr['image_url'] = $product->image_url;
-            return $arr;
-        });
+        $products = Product::with('category')->orderBy('created_at', 'desc')->take(10)->get();
+
         return Inertia::render('Home', [
             'products' => $products,
             'categories' => Category::all(),

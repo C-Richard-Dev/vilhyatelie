@@ -14,7 +14,7 @@ import { ref, computed } from 'vue';
 <template>
 	<div class="relative w-full">
 		<div class="mb-4 flex items-center justify-center">
-			<span class="font-bold text-pink-600">Produtos em Destaque</span>
+			<span class="font-bold text-pink-600">Produtos</span>
 		</div>
 		<div class="overflow-x-auto scrollbar-hide">
 			<div class="flex gap-4 pl-4 pr-2 sm:px-2" style="scroll-snap-type: x mandatory;">
@@ -25,7 +25,8 @@ import { ref, computed } from 'vue';
 						idx === 0 ? 'min-w-[75vw] sm:min-w-[350px]' : 'min-w-[70vw] sm:min-w-[350px]'
 					]"
 				>
-					<img v-if="product.image_url" :src="product.image_url" alt="Imagem do produto" class="w-full h-48 object-cover bg-pink-50">
+					<!-- <pre>{{ product }}</pre> -->
+					<img v-if="product.image" :src="`/storage/${product.image}`" alt="Imagem do produto" class="w-full h-48 object-cover bg-pink-50">
 					<div class="p-4 flex-1 flex flex-col">
 						<h2 class="text-lg font-semibold text-pink-600 mb-2">{{ product.name }}</h2>
 						<p class="text-gray-700 text-sm mb-4 flex-1">{{ product.description }}</p>
