@@ -15,6 +15,23 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                pink: {
+                    50: '#ffe5ed',
+                    100: '#ffb3c7',
+                    200: '#ff80a1',
+                    300: '#ff4d7b',
+                    400: '#ff265f',
+                    500: '#FF1C4A', // rosa choque principal
+                    600: '#e01841',
+                    700: '#b01332',
+                    800: '#800e23',
+                    900: '#4f0914',
+                },
+                primary: {
+                    DEFAULT: '#FF1C4A', // alias para rosa choque
+                },
+            },
         },
     },
 
