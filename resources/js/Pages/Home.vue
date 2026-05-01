@@ -8,14 +8,6 @@ import DefaultProductsGrid from '@/Components/DefaultProductsGrid.vue';
 const props = defineProps({
     canLogin: Boolean,
     canRegister: Boolean,
-    laravelVersion: {
-        type: String,
-        required: true,
-    },
-    phpVersion: {
-        type: String,
-        required: true,
-    },
     products: {
         type: Array,
         required: true,
@@ -44,7 +36,7 @@ function handleImageError() {
             </div>
         </div>
         <footer class="py-8 text-center text-sm text-black/60">
-            Laravel v{{ laravelVersion }} (PHP v{{ phpVersion }})
+            Feito por Caio Richard Dev
         </footer>
     </div>
 </template>
