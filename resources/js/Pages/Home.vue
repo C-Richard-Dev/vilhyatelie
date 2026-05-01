@@ -2,7 +2,8 @@
 
 import { Head, Link, usePage } from '@inertiajs/vue3';
 import Header from '@/Components/Header.vue';
-import DefaultProductsCarousel from '@/Components/DefaultProductsCarousel.vue';
+import Banner from '@/Components/Banner.vue';
+import DefaultProductsGrid from '@/Components/DefaultProductsGrid.vue';
 
 const props = defineProps({
     canLogin: Boolean,
@@ -34,11 +35,12 @@ function handleImageError() {
 <template>
     <Head title="Home" />
     <Header />
-    <div class="bg-white min-h-screen text-black flex flex-col">
+    <Banner />
+    <div class="bg-white text-black flex flex-col">
         <div class="flex-1">
-            <!-- Carrossel de Produtos Sem Status -->
+            <!-- Grid de Produtos Sem Status -->
             <div class="max-w-7xl mx-auto px-4 py-10">
-                <DefaultProductsCarousel :products="products" />
+                <DefaultProductsGrid :products="products" />
             </div>
         </div>
         <footer class="py-8 text-center text-sm text-black/60">
