@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function index(): Response
     {
-        $products = Product::with('category')->orderBy('created_at', 'desc')->take(10)->get();
+        $products = Product::with('category')->orderBy('created_at')->take(10)->get();
 
         return Inertia::render('Home', [
             'products' => $products,
