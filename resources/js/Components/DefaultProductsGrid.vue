@@ -6,13 +6,18 @@ const props = defineProps({
     type: Array,
     required: true,
   },
+  title: {
+	type: String,
+	default: 'Produtos',
+	required: false,
+  },
 });
 </script>
 
 <template>
 	<div class="relative w-full">
 		<div class="mb-4 flex items-center justify-center">
-			<span class="font-bold text-pink-600">Produtos</span>
+			<span class="font-bold text-pink-600">{{ title }}</span>
 		</div>
 		<div class="grid grid-cols-2 md:grid-cols-4 gap-4 px-4">
 			<Link

@@ -10,5 +10,7 @@ Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 Route::get('/{product}/details', [ProductController::class, 'details'])
     ->name('product.details');
+Route::get('/search', [ProductController::class, 'searchProduct'])
+    ->name('product.search');
 
 require __DIR__.'/auth.php';

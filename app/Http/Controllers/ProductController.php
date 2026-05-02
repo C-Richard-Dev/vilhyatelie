@@ -16,4 +16,19 @@ class ProductController extends Controller
             'product' => $product,
         ]);
     }
+
+    public function searchProduct(Request $request): Response
+    {
+        $query = $request->input('query');
+
+        $products = Product::where('name', 'like', '%' . $query . '%')
+            ->orWhere('description', 'like', '%' . $query . '%')
+            ->with('category')
+            ->get();
+
+        return Inertia::render('SearchResults', [
+            'products' => $products,
+            'query' => $query,
+        ]);
+    }
 }

@@ -1,13 +1,15 @@
 <script setup>
 import { ref } from 'vue';
-import { Link } from '@inertiajs/vue3';
+import { Link, router } from '@inertiajs/vue3';
 
 const search = ref('');
+const open = ref(false);
 
 function submitSearch(e) {
     e.preventDefault();
-    // Implemente a navegação para a busca, se necessário
-    // Exemplo: router.visit(`/produtos?busca=${search.value}`)
+    if (search.value.trim() !== '') {
+        router.get(`/search`, { query: search.value });
+    }
 }
 </script>
 
@@ -39,10 +41,8 @@ function submitSearch(e) {
         </div>
         <!-- Mobile nav -->
         <nav v-if="open" class="md:hidden px-4 pb-4 flex flex-col gap-2 bg-[#FF1C4A] border-t border-pink-100">
-            <Link href="/produtos" class="text-white py-2 px-2 rounded hover:bg-[#FF3570]">Produtos</Link>
+            <Link href="/" class="text-white py-2 px-2 rounded hover:bg-[#FF3570]">Produtos</Link>
             <Link href="/categorias" class="text-white py-2 px-2 rounded hover:bg-[#FF3570]">Categorias</Link>
-            <Link href="/produtos/novo" class="text-white py-2 px-2 rounded hover:bg-[#FF3570]">Novo</Link>
-            <Link href="/produtos/ultimas-unidades" class="text-white py-2 px-2 rounded hover:bg-[#FF3570]">Últimas Unidades</Link>
             <form @submit="submitSearch" class="flex items-center mt-2">
                 <input v-model="search" type="text" placeholder="Buscar..." class="rounded-l px-3 py-1 border border-pink-200 focus:ring-white focus:border-white text-sm outline-none w-full bg-[#FF3570] text-white placeholder-white" />
                 <button type="submit" class="bg-white text-[#FF1C4A] px-3 py-1 rounded-r hover:bg-gray-100 transition font-semibold">Buscar</button>
@@ -51,15 +51,7 @@ function submitSearch(e) {
     </header>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            open: false,
-        };
-    },
-};
-</script>
+
 
 <style scoped>
 /* Adicione estilos extras se necessário */
