@@ -29,10 +29,8 @@ function submitSearch(e) {
 
             <!-- Desktop nav -->
             <nav class="hidden md:flex gap-4 items-center">
-                <Link href="/produtos" class="text-white hover:text-gray-100 font-medium transition">Produtos</Link>
+                <Link href="/" class="text-white hover:text-gray-100 font-medium transition">Produtos</Link>
                 <Link href="/categorias" class="text-white hover:text-gray-100 font-medium transition">Categorias</Link>
-                <Link href="/produtos/novo" class="text-white hover:text-gray-100 font-medium transition">Novo</Link>
-                <Link href="/produtos/ultimas-unidades" class="text-white hover:text-gray-100 font-medium transition">Últimas Unidades</Link>
                 <form @submit="submitSearch" class="ml-4 flex items-center">
                     <input v-model="search" type="text" placeholder="Buscar..." class="rounded-l px-3 py-1 border border-pink-200 focus:ring-white focus:border-white text-sm outline-none bg-[#FF3570] text-white placeholder-white" />
                     <button type="submit" class="bg-white text-[#FF1C4A] px-3 py-1 rounded-r hover:bg-gray-100 transition font-semibold">Buscar</button>
