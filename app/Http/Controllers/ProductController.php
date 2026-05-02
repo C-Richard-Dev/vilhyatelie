@@ -31,4 +31,16 @@ class ProductController extends Controller
             'query' => $query,
         ]);
     }
+
+    public function productsByCategory($categoryId): Response
+    {
+        $products = Product::where('category_id', $categoryId)
+            ->with('category')
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return Inertia::render('ProductsByCategory', [
+            'products' => $products,
+        ]);
+    }
 }
