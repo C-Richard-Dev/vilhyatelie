@@ -14,6 +14,10 @@ class FabricForm
                     ->label('Nome')
                     ->required()
                     ->maxLength(255),
+                \Filament\Forms\Components\FileUpload::make('image')
+                    ->image()
+                    ->disk('public')
+                    ->label('Imagem'),
             ]);
     }
 }

@@ -8,5 +8,6 @@ class Fabric extends Model
 {
     protected $fillable = [
         'name',
+        'image',
     ];
 }

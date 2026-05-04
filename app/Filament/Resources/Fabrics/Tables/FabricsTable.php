@@ -13,6 +13,12 @@ class FabricsTable
     {
         return $table
             ->columns([
+                \Filament\Tables\Columns\ImageColumn::make('image')
+                    ->label('Foto')
+                    ->height(48)
+                    ->width(48)
+                    ->visibility('public')
+                    ->disk('public'),
                 \Filament\Tables\Columns\TextColumn::make('name')->label('Nome')->searchable()->sortable(),
             ])
             ->filters([

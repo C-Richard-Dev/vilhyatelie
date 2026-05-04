@@ -36,7 +36,10 @@ const product = props.product;
 				<div v-if="product.fabrics && product.fabrics.length" class="mt-4">
 					<h2 class="font-semibold text-pink-600 mb-2">Tecidos disponíveis:</h2>
 					<ul class="flex flex-wrap gap-2">
-						<li v-for="fabric in product.fabrics" :key="fabric.id" class="bg-pink-50 text-pink-700 px-3 py-1 rounded-full text-xs border border-pink-200">{{ fabric.name }}</li>
+						<li v-for="fabric in product.fabrics" :key="fabric.id" class="flex items-center gap-2 bg-pink-50 text-pink-700 px-3 py-1 rounded-full text-xs border border-pink-200">
+							<img v-if="fabric.image" :src="`/storage/${fabric.image}`" :alt="fabric.name" class="w-10 h-10 rounded-full object-cover border border-pink-200 bg-white" />
+							{{ fabric.name }}
+						</li>
 					</ul>
 				</div>
 				<a
