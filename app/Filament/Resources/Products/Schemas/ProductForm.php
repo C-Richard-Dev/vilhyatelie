@@ -14,6 +14,7 @@ class ProductForm
                 Forms\Components\FileUpload::make('image')
                     ->image()
                     ->required()
+                    ->disk('public')
                     ->label('Imagem'),
 
                 Forms\Components\TextInput::make('name')

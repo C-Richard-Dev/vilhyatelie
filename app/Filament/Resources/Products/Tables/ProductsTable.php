@@ -15,9 +15,10 @@ class ProductsTable
             ->columns([
                 \Filament\Tables\Columns\ImageColumn::make('image')
                     ->label('Foto')
-                    ->url(fn ($record) => $record->image ? asset('storage/' . $record->image) : null)
                     ->height(48)
-                    ->width(48),
+                    ->width(48)
+                    ->visibility('public')
+                    ->disk('public'),
                 \Filament\Tables\Columns\TextColumn::make('name')
                     ->searchable()
                     ->label('Nome'),
