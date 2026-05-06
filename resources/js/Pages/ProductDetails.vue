@@ -4,6 +4,12 @@ import Header from '@/Components/Header.vue';
 
 const { props } = usePage();
 const product = props.product;
+
+// Gerar link do produto
+const productUrl = typeof window !== 'undefined' ? window.location.href : '';
+const whatsappNumber = '559182183685';
+const whatsappMessage = `Olá, Raquel Vilhena! Tenho interesse no produto: ${product.name} - ${productUrl}`;
+const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 </script>
 
 <template>
@@ -42,13 +48,13 @@ const product = props.product;
 						</li>
 					</ul>
 				</div>
-				<a
-					:href="`https://wa.me/5591982473965?text=Olá! Tenho interesse no produto: ${encodeURIComponent(product.name)}`"
-					target="_blank"
-					class="mt-6 w-full md:w-auto inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg text-center text-lg shadow transition-all duration-200"
-				>
-					Pedir pelo WhatsApp
-				</a>
+				   <a
+					   :href="whatsappLink"
+					   target="_blank"
+					   class="mt-6 w-full md:w-auto inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg text-center text-lg shadow transition-all duration-200"
+				   >
+					   Pedir pelo WhatsApp
+				   </a>
 			</div>
 		</div>
 	</div>
