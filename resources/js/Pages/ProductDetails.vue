@@ -7,7 +7,7 @@ const product = props.product;
 
 // Gerar link do produto
 const productUrl = typeof window !== 'undefined' ? window.location.href : '';
-const whatsappNumber = '559182183685';
+const whatsappNumber = '559187465809';
 const whatsappMessage = `Olá, Raquel Vilhena! Tenho interesse no produto: ${product.name} - ${productUrl}`;
 const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 </script>
