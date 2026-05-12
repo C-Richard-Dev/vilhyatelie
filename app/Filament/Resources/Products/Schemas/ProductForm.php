@@ -32,6 +32,13 @@ class ProductForm
                     ->rule('regex:/^\d{1,3}(\.\d{3})*,\d{2}$/')
                     ->helperText('Exemplo: 1.234,56'),
 
+                Forms\Components\TextInput::make('quantity')
+                    ->required()
+                    ->label('Quantidade')
+                    ->numeric()
+                    ->default(0)
+                    ->minValue(0),
+
                 Forms\Components\Select::make('category_id')
                     ->relationship('category', 'name', fn ($query) => $query->orderBy('name'))
                     ->searchable()

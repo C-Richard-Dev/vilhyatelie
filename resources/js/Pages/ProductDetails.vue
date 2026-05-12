@@ -39,6 +39,7 @@ const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
 					<span v-if="product.category" class="text-xs bg-pink-100 text-pink-600 px-2 py-1 rounded">{{ product.category?.name }}</span>
 				</div>
 				<div class="text-2xl font-bold text-pink-500 mt-2">R$ {{ product.price }}</div>
+				<div class="text-sm text-gray-600">Quantidade disponível: <span class="font-semibold">{{ product.quantity }}</span></div>
 				<div v-if="product.fabrics && product.fabrics.length" class="mt-4">
 					<h2 class="font-semibold text-pink-600 mb-2">Tecidos disponíveis:</h2>
 					<ul class="flex flex-wrap gap-2">
