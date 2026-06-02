@@ -12,6 +12,11 @@ const props = defineProps({
 	required: false,
   },
 });
+
+const truncate = (text, length = 20) => {
+  if (!text) return '';
+  return text.length <= length ? text : `${text.slice(0, length).trimEnd()}...`;
+};
 </script>
 
 <template>
@@ -33,7 +38,7 @@ const props = defineProps({
 				<img :src="product.image ? `/storage/${product.image}` : '/images/default.png'" alt="Imagem do produto" class="w-full h-48 object-cover bg-pink-50">
 				<div class="p-4 flex-1 flex flex-col">
 					<h2 class="text-lg font-semibold text-pink-600 mb-2 group-hover:text-white">{{ product.name }}</h2>
-					<p class="text-gray-700 text-sm mb-4 flex-1 hidden md:block group-hover:text-white">{{ product.description }}</p>
+							<p class="text-gray-700 text-sm mb-4 flex-1 hidden md:block group-hover:text-white">{{ truncate(product.description, 100) }}</p>
 					<div class="mt-auto flex items-center justify-between">
 						<span class="text-xl font-bold text-pink-500 group-hover:text-white">R$ {{ product.price }}</span>
 						<span v-if="product.category" class="text-xs bg-pink-100 text-pink-600 px-2 py-1 rounded hidden md:block group-hover:bg-pink-700 group-hover:text-white">{{ product.category?.name }}</span>
