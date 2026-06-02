@@ -20,6 +20,16 @@ class UserResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUser;
 
+    public static function getLabel(): string
+    {
+        return 'Usuário';
+    }
+
+    public static function getPluralLabel(): string
+    {
+        return 'Usuários';
+    }
+
     public static function form(Schema $schema): Schema
     {
         return UserForm::configure($schema);
@@ -29,6 +39,7 @@ class UserResource extends Resource
     {
         return UsersTable::configure($table);
     }
+
 
     public static function getRelations(): array
     {
