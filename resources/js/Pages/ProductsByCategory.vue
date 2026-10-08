@@ -6,6 +6,7 @@ import Header from '@/Components/Header.vue';
 
 const page = usePage();
 const products = computed(() => page.props.products || []);
+const category = computed(() => page.props.category || null);
 </script>
 
 <template>
@@ -16,7 +17,9 @@ const products = computed(() => page.props.products || []);
         <div class="mb-6">
             <Link href="/categorias" class="text-[#FF1C4A] hover:underline">← Voltar para categorias</Link>
         </div>
-        <h1 class="text-2xl font-bold mb-4 mt-4">Produtos da Categoria</h1>
+        <h1 class="text-2xl font-bold mb-4 mt-4">
+            Produtos da Categoria<span v-if="category">: {{ category.name }}</span>
+        </h1>
         <div v-if="products.length === 0" class="text-gray-500">Nenhum produto encontrado nesta categoria.</div>
         <div v-else class="py-4">
         <DefaultProductsGrid :products="products" />
