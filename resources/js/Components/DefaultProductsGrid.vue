@@ -27,8 +27,8 @@ const truncate = (text, length = 20) => {
 		<div class="grid grid-cols-1 gap-4 px-4 sm:grid-cols-2 md:grid-cols-4">
 			<Link
 				v-for="product in products"
-				:key="product.id"
-				:href="route('product.details', { product: product.id })"
+				:key="product.uuid"
+				:href="route('product.details', { product: product.uuid })"
 				class="group min-h-[28rem] bg-white rounded-xl shadow-md overflow-hidden border border-pink-100 flex flex-col transition-all duration-300 transform hover:scale-105 hover:bg-primary hover:text-white relative md:min-h-0"
 			>
 				<!-- Selo de status -->

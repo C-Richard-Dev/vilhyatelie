@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
+use App\Models\Category;
 use App\Models\Product;
 
 class ProductController extends Controller
@@ -32,15 +33,16 @@ class ProductController extends Controller
         ]);
     }
 
-    public function productsByCategory($categoryId): Response
+    public function productsByCategory(Category $category): Response
     {
-        $products = Product::where('category_id', $categoryId)
+        $products = $category->products()
             ->with('category')
             ->orderBy('created_at', 'desc')
             ->get();
 
         return Inertia::render('ProductsByCategory', [
             'products' => $products,
+            'category' => $category,
         ]);
     }
 }
